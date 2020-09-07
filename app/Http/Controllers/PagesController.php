@@ -17,6 +17,7 @@ class PagesController extends Controller
         return view('pages.forgetPassword');
     }
     public function dashboard() {
+        
         $employee= employee::orderBy('created_at','desc')->get();
         $cer = DB::table('certifications')->where('expires_at','<=',Carbon::now()->toDateString())->get();
         $count1 = count($cer);
@@ -32,8 +33,4 @@ class PagesController extends Controller
     public function howto(){
         return view('pages.howto');
     }
-    public function dcvault(){
-        return view('pages.dcvault');
-    }
-    
 }
